@@ -1,0 +1,6 @@
+/* Tweaks to the e-learning page itself (not the UT Helper panels), injected via manifest.json. */
+
+/* "Sinyal: Kuat (22ms)" network badge floating over the page. */
+#network-indicator-container {
+  display: none !important;
+}

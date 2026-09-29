@@ -1,0 +1,10 @@
+{
+  "name": "ut-helper",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Chrome extension for e-learning Universitas Terbuka",
+  "scripts": {
+    "build": "npx -y tailwindcss@3 -i src/styles/panel.css -o dist/panel.css --minify",
+    "watch": "npx -y tailwindcss@3 -i src/styles/panel.css -o dist/panel.css --watch"
+  }
+}

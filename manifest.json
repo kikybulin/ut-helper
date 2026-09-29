@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "UT Helper",
+  "version": "0.3",
+  "description": "Deadline tracker, daftar mata kuliah, Kehadiran otomatis, dan AI Assistant untuk e-learning Universitas Terbuka.",
+  "permissions": ["storage", "alarms", "offscreen", "notifications"],
+  "host_permissions": ["https://elearning.ut.ac.id/*"],
+  "background": { "service_worker": "src/background/background.js" },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://elearning.ut.ac.id/*"],
+      "css": ["src/styles/page-fixes.css"],
+      "js": [
+        "src/lib/dom.js",
+        "src/lib/ut-client.js",
+        "src/lib/gemini.js",
+        "src/content/shell.js",
+        "src/content/helper-panel.js",
+        "src/content/ai-panel.js",
+        "src/content/main.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/panel.css", "assets/icons/icon-48.png"],
+      "matches": ["https://elearning.ut.ac.id/*"]
+    }
+  ]
+}

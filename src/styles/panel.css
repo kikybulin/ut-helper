@@ -1,0 +1,93 @@
+/* Hallmark · component: extension panels · genre: modern-minimal · theme: Coral (panel-scaled)
+ * differs from previous (Hum): paper warm-grey vs cream · display Geist vs rounded Jakarta · accent single coral vs multi
+ * states: default · hover · focus · active · disabled · loading · error · success
+ * Build: npm run build  (see package.json)
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tokens: OKLCH channels, consumed by tailwind.config.js as oklch(var(--x) / alpha). */
+:host {
+  --paper: 98.8% 0.003 70;
+  --paper-2: 96.2% 0.005 70;
+  --rule: 90.5% 0.006 70;
+  --ink: 21% 0.008 60;
+  --accent: 64% 0.17 35;
+  --accent-ink: 50% 0.16 35;
+  --accent-tint: 95.5% 0.025 40;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: Geist, system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  :where(button, a, input, select, textarea):focus-visible {
+    outline: 2px solid oklch(var(--accent));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel-shell {
+    background: oklch(var(--paper));
+    border-radius: 14px;
+    box-shadow: 0 0 0 1px oklch(var(--rule)), 0 1px 2px oklch(var(--ink) / 0.06), 0 18px 40px -14px oklch(var(--ink) / 0.28);
+  }
+
+  /* Pill buttons: ink-filled primary, outlined secondary. Colour change only, no bounce. */
+  .btn-primary, .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45em;
+    border-radius: 999px; font-weight: 500; cursor: pointer; white-space: nowrap;
+    transition: background-color 150ms var(--ease-out), box-shadow 150ms var(--ease-out), color 150ms;
+  }
+  .btn-primary { background: oklch(var(--ink)); color: oklch(var(--paper)); }
+  .btn-primary:hover { background: oklch(var(--ink) / 0.86); }
+  .btn-primary:active { background: oklch(var(--ink) / 0.94); }
+  .btn-secondary { color: oklch(var(--ink)); box-shadow: inset 0 0 0 1px oklch(var(--ink) / 0.18); }
+  .btn-secondary:hover { background: oklch(var(--paper-2)); box-shadow: inset 0 0 0 1px oklch(var(--ink) / 0.3); }
+  .btn-secondary:active { background: oklch(var(--rule)); }
+  .btn-primary:disabled, .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 8px; cursor: pointer;
+    color: oklch(var(--ink) / 0.55); transition: background-color 150ms, color 150ms;
+  }
+  .icon-btn:hover { background: oklch(var(--paper-2)); color: oklch(var(--ink)); }
+  .icon-btn:active { background: oklch(var(--rule)); }
+
+  /* Underline tabs. */
+  .tab {
+    padding: 10px 0 9px; font-size: 13px; font-weight: 500; cursor: pointer;
+    color: oklch(var(--ink) / 0.55); box-shadow: inset 0 -2px 0 transparent;
+    transition: color 150ms, box-shadow 150ms;
+  }
+  .tab:hover { color: oklch(var(--ink)); }
+  .tab.is-on { color: oklch(var(--ink)); box-shadow: inset 0 -2px 0 oklch(var(--ink)); }
+
+  .chip {
+    border-radius: 999px; padding: 4px 11px; font-size: 12px; font-weight: 500; cursor: pointer;
+    color: oklch(var(--ink) / 0.7); box-shadow: inset 0 0 0 1px oklch(var(--ink) / 0.16);
+    transition: background-color 150ms, color 150ms;
+  }
+  .chip:hover { background: oklch(var(--paper-2)); color: oklch(var(--ink)); }
+  .chip.is-on { background: oklch(var(--ink)); color: oklch(var(--paper)); box-shadow: none; }
+
+  .field {
+    width: 100%; border-radius: 8px; padding: 9px 12px; font-size: 13px;
+    color: oklch(var(--ink)); background: oklch(var(--paper));
+    box-shadow: inset 0 0 0 1px oklch(var(--ink) / 0.16);
+    outline: none; transition: box-shadow 150ms;
+  }
+  .field::placeholder { color: oklch(var(--ink) / 0.4); }
+  .field:focus { box-shadow: inset 0 0 0 1px oklch(var(--ink) / 0.5), 0 0 0 3px oklch(var(--accent) / 0.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
