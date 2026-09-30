@@ -95,8 +95,11 @@ Google ngasih kuota gratis buat API key ini. Kalau kuotanya habis, AI-nya bakal 
 - Ekstensi cuma ngobrol sama `elearning.ut.ac.id` pakai login kamu yang sudah ada. Password kamu nggak pernah dibaca atau disimpan.
 - Pertanyaan ke AI dikirim ke Google Gemini pakai API key kamu, dan cuma waktu kamu nanya.
 - Font panel (Geist) diambil dari Google Fonts.
+- Sekali sehari ekstensi baca `manifest.json` dari GitHub buat ngecek ada versi baru atau nggak.
 
 ## Cara update
+
+Ekstensi ngecek versi baru sekali sehari. Kalau ada, muncul notifikasi; klik notifikasinya buat buka halaman GitHub.
 
 1. Download ZIP yang baru, lalu timpa isi folder lama.
 2. Buka `chrome://extensions`, cari UT Helper, klik ikon **Reload** (panah melingkar).
