@@ -20,6 +20,7 @@
         "src/lib/dom.js",
         "src/lib/ut-client.js",
         "src/lib/gemini.js",
+        "src/content/scorm.js",
         "src/content/shell.js",
         "src/content/helper-panel.js",
         "src/content/ai-panel.js",

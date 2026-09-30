@@ -46,6 +46,10 @@ Tiap 15 menit, ekstensi ngecek semua mata kuliah yang lagi berjalan. Kalau ada "
 
 Ini jalan di background, jadi tab e-learning nggak perlu dibuka. Syaratnya cuma dua: Chrome lagi nyala dan kamu masih login di e-learning.
 
+### Tes Formatif dengan Gemini
+
+Di halaman Tes Formatif (SCORM), di atas kuisnya muncul tombol **Kerjakan Tes Formatif dengan Gemini**. Ekstensi membaca tiap soal pilihan ganda, minta jawaban ke Gemini, memilih dan mengirim jawabannya, lalu membuka halaman hasil supaya nilainya tersimpan. Tes Formatif bisa diulang tanpa batas dan yang dipakai nilai tertinggi, jadi kalau hasilnya kurang, tinggal ulangi. Butuh API key Gemini.
+
 ### AI Assistant (Gemini)
 
 - Tanya apa aja soal materi kuliah. Pertanyaan lanjutan tetap nyambung sama obrolan sebelumnya.
